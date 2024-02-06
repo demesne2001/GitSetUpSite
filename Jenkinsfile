@@ -1,26 +1,26 @@
 pipeline {
-    
     agent any
 
     stages {
-        
-        stage('Build') {
-            
+        stage('checkout') {
             steps {
-                echo 'Building..'
-           }
-        }
-        
-        stage('Test') {
-            steps {
-              echo 'Testing..'
+               checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'demesne2001', url: 'https://github.com/demesne2001/GitSetUpSite.git']])
             }
         }
-        
-        stage('Deploy') {
+        stage('Docker Image') {
             steps {
-                echo 'Deploying....'
+                script{
+                    sh 'docker build -t FinalDockerDajngo .'
+                }
+            }
+        }
+        stage('Docker push') {
+            steps {
+                script{
+                    sh 'docker login -u patelom0910 -p 09102001Om .'
+                }
             }
         }
     }
 }
+
