@@ -9,9 +9,9 @@ ENV PYTHONUNBUFFERED 1
 RUN pip install --upgrade pip  
 COPY . .
 RUN ls -l
-COPY requirements.txt .
+
 RUN pip install -r requirements
 
-EXPOSE 8000
+EXPOSE 3032
 
-CMD python3 manage.py runserver 
+CMD python3 manage.py runserver 0:3032
