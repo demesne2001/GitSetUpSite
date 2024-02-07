@@ -12,7 +12,7 @@ pipeline {
         stage('Docker Image') {
             steps {
                 script{
-                    bat 'docker build -t FinalDockerDajngo .'
+                    bat 'docker build -t finaldockerproject .'
                     
                 }
                 echo 'Docker Image done'
