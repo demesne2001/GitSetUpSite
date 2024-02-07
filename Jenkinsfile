@@ -21,7 +21,7 @@ pipeline {
         stage('Docker push') {
             steps {
                 script{
-                    bat 'docker login -u patelom0910 -p 09102001Om .'
+                    bat 'docker login -u patelom0910 -p 09102001Om'
                 }
                 echo 'Docker push done'
             }
