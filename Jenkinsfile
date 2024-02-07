@@ -5,6 +5,7 @@ pipeline {
         stage('checkout') {
             steps {
                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'demesne2001', url: 'https://github.com/demesne2001/GitSetUpSite.git']])
+               echo 
             }
         }
         stage('Docker Image') {
