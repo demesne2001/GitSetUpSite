@@ -12,7 +12,7 @@ pipeline {
         stage('Docker Image') {
             steps {
                 script{
-                    sh 'docker build -t FinalDockerDajngo .'
+                    bat 'docker build -t FinalDockerDajngo .'
                     
                 }
                 echo 'Docker Image done'
@@ -21,7 +21,7 @@ pipeline {
         stage('Docker push') {
             steps {
                 script{
-                    sh 'docker login -u patelom0910 -p 09102001Om .'
+                    bat 'docker login -u patelom0910 -p 09102001Om .'
                 }
                 echo 'Docker push done'
             }
